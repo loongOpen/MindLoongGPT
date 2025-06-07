@@ -14,10 +14,11 @@
 
 ## 🎥 演示视频
 
-| 仿真效果                        | 实机运行                  |
-| ------------------------------- | ------------------------- |
-|  <img src="./assets/images/simulation.gif" alt="Simulation" style="width: auto; height: 500px;">| <img src="./assets/images/real.gif" alt="Real Robot" style="width: auto; height: 500px;"> |
-
+| 仿真效果                        |
+|:------------------------------:|
+|  <img src="./assets/images/simulation.gif" alt="Simulation" width=600>|
+|**实机运行** | 
+| <img src="./assets/images/real.gif" alt="Real Robot" width=700> |
 ## ✨ 核心优势
 
 ### 1. 🎨 多模态交互
@@ -47,10 +48,14 @@
 ## 📅 里程碑
 
 <div align="center">
-  <img src="./assets/images/milestone.png" alt="项目里程碑" style="max-width: 100%; height: auto;">
+  <img src="./assets/images/milestone.png" alt="项目里程碑" width=700>
 </div>
 
 - **2025/05/29** - 国地中心与复旦大学联合发布全球首款生成式人形机器人运动大模型"龙跃"(MindLoongGPT)
+
+<div align="center">
+  <img src="./assets/images/stage.jpg" alt="阶段" width=400>
+</div>
 
 ## 🚀 快速开始
 
@@ -62,7 +67,7 @@
 git clone https://github.com/OpenMotionLab/MotionGPT
 ```
 
-将script/loong_fit.py 拷贝到 motiongpt文件夹
+**需要手动将script/loong_fit.py 拷贝到 motiongpt文件夹**
 
 环境安装请参考MotionGPT
 
@@ -114,11 +119,19 @@ pip install -e .
 
 - 确保文件路径正确
 
+- 项目中只有demo数据，完整数据集在huggingface上，包括AMASS数据集和自采集数据：
+  - [AMASS数据集：](https://huggingface.co/datasets/OpenLoong/Public_Retargeted)
+      <div align="center">
+        <img src="./assets/images/retarget.gif" width=500>
+      </div>
+  - [自采集数据集：](https://huggingface.co/datasets/OpenLoong/mocap_dataes) 
+      <div align="center">
+        <img src="./assets/images/motion_capture.gif" width=500>
+      </div>
+
 ### 2. 📚 基本使用指南
 
 - 生成 npz 动作集阶段
-
-<img src="./assets/images/motion_capture.gif" style="max-width: 50%; height: auto;"/>
 
 ```bash
 # 进入MotionGPT目录
@@ -160,7 +173,7 @@ python script/retarget/smpl/grad_fit_openloong.py
 ### 3. 📂 核心脚本说明
 - 重定向脚本在`script/retarget/smpl`以及`script/retarget/mink`文件夹下：
 
-<img src="./assets/images/retarget.gif" />
+
 
 1. `grad_fit_openloong_shape.py`用于对青龙机器人进行 SMPL 体型参数 β 的匹配。如果没有青龙体型参数文件或者更改了体型匹配权重，那么在进行重定向任务前，应**首先执行一次**该程序。
 2. `grad_fit_openloong.py`用于重定向，将之前生成的 npz 放入 Amass 文件夹下运行
